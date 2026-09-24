@@ -1,0 +1,10 @@
+parse checks ok: 221 hitters (SLG, OBP) and 276 pitchers (ERA) match the published rates
+league 2026 (to date): OPS 0.6817 (non-pitcher hitters 358), ERA 3.332; pitchers 381
+pillar1 (MLB only) bat Y1 {'n': 6, 'below_cut': 0, 'C': 0.0952, 'A': 0.0899, 'B': 0.0694}
+pillar1 (MLB only) pit P1 {'n': 7, 'below_cut': 9, 'C': 0.0414, 'A': 0.0397, 'B': 0.044}
+layer2 (MLB+AAA) bat Y1 {'n': 8, 'below_cut': 2, 'C': 0.1447, 'A': 0.1425, 'B': 0.1251}
+   aaa_only bat n 2 {'C': 0.3027, 'A': 0.3089, 'B': 0.2974}
+   mlb≥150  bat n 6 {'C': 0.0921, 'A': 0.0871, 'B': 0.0677}
+layer2 (MLB+AAA) pit P1 {'n': 11, 'below_cut': 10, 'C': 0.0359, 'A': 0.0358, 'B': 0.0352}
+   aaa_only pit n 4 {'C': 0.0265, 'A': 0.0234, 'B': 0.024}
+   mlb≥150  pit n 7 {'C': 0.0413, 'A': 0.0429, 'B': 0.0416}
