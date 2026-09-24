@@ -1,0 +1,196 @@
+G1 ok: 36 per-player files reproduce ana1.mlb_features (incl. start_share) exactly
+completeness: every date has a file or an empty-day marker
+aaa 2024: schedule final 2232 | fetched 2232 | missing 0 | extra 0 | missing ids []
+G3 ok: aaa bat: 10 non-empty per-player files equal league-wide sums; 4 empty files absent league-wide
+G3 ok: aaa pit: 11 non-empty per-player files equal league-wide sums; 4 empty files absent league-wide
+aaa 2024 days 154 pitches 673720
+mlb 2024: schedule final 2429 | fetched 2429 | missing 0 | extra 0 | missing ids []
+G2 ok: mlb bat league-wide sums equal per-player files for 12 players
+G2 ok: mlb pit league-wide sums equal per-player files for 24 players
+mlb 2024 days 185 pitches 709458
+done
+G1 ok: 25 per-player files reproduce ana1.mlb_features (incl. start_share) exactly
+completeness: every date has a file or an empty-day marker
+aaa 2025: schedule final 2232 | fetched 2232 | missing 0 | extra 0 | missing ids []
+G3 ok: aaa bat: 0 non-empty per-player files equal league-wide sums; 0 empty files absent league-wide
+G3 ok: aaa pit: 0 non-empty per-player files equal league-wide sums; 0 empty files absent league-wide
+aaa 2025 days 152 pitches 669748
+mlb 2025: schedule final 2430 | fetched 2430 | missing 0 | extra 0 | missing ids []
+G2 ok: mlb bat league-wide sums equal per-player files for 7 players
+G2 ok: mlb pit league-wide sums equal per-player files for 18 players
+mlb 2025 days 184 pitches 710030
+done
+2023 bat pairs 200 {('bat', 'IL'): 137, ('bat', 'PCL'): 63}
+2023 pit pairs 232 {('RP', 'IL'): 101, ('RP', 'PCL'): 49, ('SP', 'IL'): 62, ('SP', 'PCL'): 20}
+2024 bat pairs 183 {('bat', 'IL'): 115, ('bat', 'PCL'): 68}
+2024 pit pairs 212 {('RP', 'IL'): 83, ('RP', 'PCL'): 44, ('SP', 'IL'): 56, ('SP', 'PCL'): 29}
+2025 bat pairs 197 {('bat', 'IL'): 128, ('bat', 'PCL'): 69}
+2025 pit pairs 236 {('RP', 'IL'): 106, ('RP', 'PCL'): 39, ('SP', 'IL'): 62, ('SP', 'PCL'): 29}
+         m     s    r    g  level   thin   delta      se    n   slope  callup_first  demotion_first  same_day
+0     woba  2023  bat   IL  s,r,g  False -0.0834  0.0054  137  0.1900       -0.0844         -0.0807       NaN
+1     woba  2023  bat  PCL  s,r,g  False -0.1112  0.0071   63  0.2301       -0.1105         -0.1127       NaN
+2     woba  2024  bat   IL  s,r,g  False -0.0748  0.0050  115  0.2488       -0.0754         -0.0739       NaN
+3     woba  2024  bat  PCL  s,r,g  False -0.1028  0.0062   68  0.3661       -0.1015         -0.1052       NaN
+4     woba  2025  bat   IL  s,r,g  False -0.0754  0.0058  128  0.1520       -0.0673         -0.0907       NaN
+5     woba  2025  bat  PCL  s,r,g  False -0.1010  0.0065   69  0.0354       -0.0999         -0.1043       NaN
+6    xwoba  2023  bat   IL  s,r,g  False -0.0452  0.0040  137  0.3362       -0.0459         -0.0435       NaN
+7    xwoba  2023  bat  PCL  s,r,g  False -0.0560  0.0052   63  0.2458       -0.0579         -0.0518       NaN
+8    xwoba  2024  bat   IL  s,r,g  False -0.0349  0.0037  115  0.2674       -0.0367         -0.0323       NaN
+9    xwoba  2024  bat  PCL  s,r,g  False -0.0464  0.0054   68  0.5064       -0.0516         -0.0375       NaN
+10   xwoba  2025  bat   IL  s,r,g  False -0.0338  0.0043  128  0.3556       -0.0278         -0.0451       NaN
+11   xwoba  2025  bat  PCL  s,r,g  False -0.0518  0.0046   69  0.3948       -0.0492         -0.0590       NaN
+12   xwoba  2023   SP   IL  s,r,g  False  0.0317  0.0055   62  0.1498        0.0315          0.0322       NaN
+13   xwoba  2023   SP  PCL  s,r,g  False  0.0305  0.0082   20  0.2566        0.0333          0.0208       NaN
+14   xwoba  2024   SP   IL  s,r,g  False  0.0383  0.0044   56  0.3224        0.0380          0.0394       NaN
+15   xwoba  2024   SP  PCL  s,r,g  False  0.0486  0.0064   29  0.6732        0.0451          0.0555       NaN
+16   xwoba  2025   SP   IL  s,r,g  False  0.0402  0.0059   62  0.0701        0.0414          0.0365       NaN
+17   xwoba  2025   SP  PCL  s,r,g  False  0.0466  0.0077   29  0.2601        0.0427          0.0547       NaN
+18   xwoba  2023   RP   IL  s,r,g  False  0.0350  0.0046  101  0.2595        0.0301          0.0465       NaN
+19   xwoba  2023   RP  PCL  s,r,g  False  0.0442  0.0064   49  0.0775        0.0456          0.0415       NaN
+20   xwoba  2024   RP   IL  s,r,g  False  0.0413  0.0065   83  0.1237        0.0382          0.0519       NaN
+21   xwoba  2024   RP  PCL  s,r,g  False  0.0489  0.0083   44  0.0463        0.0462          0.0530       NaN
+22   xwoba  2025   RP   IL  s,r,g  False  0.0479  0.0049  106  0.2813        0.0428          0.0604       NaN
+23   xwoba  2025   RP  PCL  s,r,g  False  0.0524  0.0084   39  0.0235        0.0460          0.0752       NaN
+24       k  2023  bat   IL  s,r,g  False  0.0527  0.0043  137  0.6627        0.0567          0.0424       NaN
+25       k  2023  bat  PCL  s,r,g  False  0.0605  0.0072   63  0.9199        0.0583          0.0655       NaN
+26       k  2024  bat   IL  s,r,g  False  0.0406  0.0054  115  0.6505        0.0413          0.0396       NaN
+27       k  2024  bat  PCL  s,r,g  False  0.0576  0.0069   68  0.7829        0.0644          0.0461       NaN
+28       k  2025  bat   IL  s,r,g  False  0.0319  0.0053  128  0.6272        0.0292          0.0370       NaN
+29       k  2025  bat  PCL  s,r,g  False  0.0740  0.0066   69  1.0966        0.0753          0.0702       NaN
+30      bb  2023  bat   IL  s,r,g  False -0.0437  0.0032  137  0.4306       -0.0440         -0.0429       NaN
+31      bb  2023  bat  PCL  s,r,g  False -0.0411  0.0048   63  0.4218       -0.0436         -0.0353       NaN
+32      bb  2024  bat   IL  s,r,g  False -0.0396  0.0037  115  0.3712       -0.0399         -0.0391       NaN
+33      bb  2024  bat  PCL  s,r,g  False -0.0440  0.0040   68  0.3738       -0.0505         -0.0329       NaN
+34      bb  2025  bat   IL  s,r,g  False -0.0394  0.0030  128  0.5254       -0.0406         -0.0372       NaN
+35      bb  2025  bat  PCL  s,r,g  False -0.0394  0.0045   69  0.4124       -0.0409         -0.0355       NaN
+36      hr  2023  bat   IL  s,r,g  False -0.0140  0.0021  137  0.3001       -0.0151         -0.0114       NaN
+37      hr  2023  bat  PCL  s,r,g  False -0.0155  0.0026   63  0.2746       -0.0154         -0.0156       NaN
+38      hr  2024  bat   IL  s,r,g  False -0.0141  0.0017  115  0.3815       -0.0145         -0.0136       NaN
+39      hr  2024  bat  PCL  s,r,g  False -0.0147  0.0024   68  0.4731       -0.0125         -0.0186       NaN
+40      hr  2025  bat   IL  s,r,g  False -0.0109  0.0018  128  0.3317       -0.0094         -0.0137       NaN
+41      hr  2025  bat  PCL  s,r,g  False -0.0120  0.0025   69  0.3350       -0.0119         -0.0120       NaN
+42      hr  2023   SP   IL  s,r,g  False  0.0059  0.0026   62  0.0970        0.0078          0.0017       NaN
+43      hr  2023   SP  PCL  s,r,g  False  0.0108  0.0026   20  0.3165        0.0111          0.0098       NaN
+44      hr  2024   SP   IL  s,r,g  False  0.0090  0.0021   56  0.3481        0.0087          0.0101       NaN
+45      hr  2024   SP  PCL  s,r,g  False  0.0065  0.0037   29  0.0121        0.0036          0.0124       NaN
+46      hr  2025   SP   IL  s,r,g  False  0.0077  0.0025   62  0.0780        0.0078          0.0075       NaN
+47      hr  2025   SP  PCL  s,r,g  False  0.0136  0.0033   29  0.1853        0.0140          0.0127       NaN
+48      hr  2023   RP   IL  s,r,g  False  0.0049  0.0022  101 -0.0112        0.0032          0.0091       NaN
+49      hr  2023   RP  PCL  s,r,g  False  0.0096  0.0027   49  0.2547        0.0089          0.0109       NaN
+50      hr  2024   RP   IL  s,r,g  False  0.0047  0.0027   83  0.1339        0.0036          0.0086       NaN
+51      hr  2024   RP  PCL  s,r,g  False  0.0098  0.0036   44 -0.0552        0.0088          0.0113       NaN
+52      hr  2025   RP   IL  s,r,g  False  0.0105  0.0020  106  0.3297        0.0087          0.0149       NaN
+53      hr  2025   RP  PCL  s,r,g  False  0.0111  0.0039   39  0.1689        0.0113          0.0102       NaN
+54     brl  2023  bat   IL  s,r,g  False -0.0085  0.0025  137  0.4117       -0.0086         -0.0084       NaN
+55     brl  2023  bat  PCL  s,r,g  False -0.0099  0.0033   63  0.5827       -0.0095         -0.0108       NaN
+56     brl  2024  bat   IL  s,r,g  False -0.0040  0.0020  115  0.5330       -0.0035         -0.0048       NaN
+57     brl  2024  bat  PCL  s,r,g  False -0.0050  0.0034   68  0.6405       -0.0034         -0.0078       NaN
+58     brl  2025  bat   IL  s,r,g  False -0.0067  0.0025  128  0.4382       -0.0052         -0.0095       NaN
+59     brl  2025  bat  PCL  s,r,g  False -0.0061  0.0029   69  0.5213       -0.0060         -0.0063       NaN
+60     brl  2023   SP   IL  s,r,g  False  0.0191  0.0035   62 -0.1465        0.0175          0.0228       NaN
+61     brl  2023   SP  PCL  s,r,g  False  0.0244  0.0044   20  0.1490        0.0262          0.0182       NaN
+62     brl  2024   SP   IL  s,r,g  False  0.0245  0.0032   56  0.1996        0.0223          0.0328       NaN
+63     brl  2024   SP  PCL  s,r,g  False  0.0243  0.0040   29  0.6614        0.0246          0.0237       NaN
+64     brl  2025   SP   IL  s,r,g  False  0.0190  0.0036   62  0.0522        0.0173          0.0243       NaN
+65     brl  2025   SP  PCL  s,r,g  False  0.0325  0.0044   29  0.2666        0.0291          0.0392       NaN
+66     brl  2023   RP   IL  s,r,g  False  0.0111  0.0025  101  0.2129        0.0085          0.0173       NaN
+67     brl  2023   RP  PCL  s,r,g  False  0.0276  0.0033   49  0.2552        0.0254          0.0319       NaN
+68     brl  2024   RP   IL  s,r,g  False  0.0197  0.0034   83  0.2187        0.0185          0.0242       NaN
+69     brl  2024   RP  PCL  s,r,g  False  0.0236  0.0044   44  0.1905        0.0231          0.0243       NaN
+70     brl  2025   RP   IL  s,r,g  False  0.0208  0.0028  106  0.2020        0.0174          0.0292       NaN
+71     brl  2025   RP  PCL  s,r,g  False  0.0253  0.0042   39  0.4420        0.0241          0.0295       NaN
+72     kbb  2023   SP   IL  s,r,g  False -0.0195  0.0088   62  0.3500       -0.0180         -0.0225       NaN
+73     kbb  2023   SP  PCL  s,r,g  False -0.0269  0.0135   20  0.2417       -0.0322         -0.0088       NaN
+74     kbb  2024   SP   IL  s,r,g  False -0.0417  0.0085   56  0.4188       -0.0447         -0.0307       NaN
+75     kbb  2024   SP  PCL  s,r,g  False -0.0488  0.0094   29  0.5255       -0.0529         -0.0404       NaN
+76     kbb  2025   SP   IL  s,r,g  False -0.0310  0.0095   62  0.1563       -0.0349         -0.0191       NaN
+77     kbb  2025   SP  PCL  s,r,g  False -0.0344  0.0113   29  0.4396       -0.0361         -0.0309       NaN
+78     kbb  2023   RP   IL  s,r,g  False -0.0451  0.0076  101  0.3453       -0.0411         -0.0544       NaN
+79     kbb  2023   RP  PCL  s,r,g  False -0.0411  0.0093   49  0.3354       -0.0509         -0.0217       NaN
+80     kbb  2024   RP   IL  s,r,g  False -0.0475  0.0099   83  0.2176       -0.0466         -0.0507       NaN
+81     kbb  2024   RP  PCL  s,r,g  False -0.0516  0.0126   44  0.2068       -0.0432         -0.0640       NaN
+82     kbb  2025   RP   IL  s,r,g  False -0.0434  0.0073  106  0.2606       -0.0459         -0.0373       NaN
+83     kbb  2025   RP  PCL  s,r,g  False -0.0538  0.0129   39  0.1926       -0.0406         -0.1007       NaN
+84    fipn  2023   SP   IL  s,r,g  False  0.0968  0.0425   62  0.1441        0.1173          0.0527       NaN
+85    fipn  2023   SP  PCL  s,r,g  False  0.1696  0.0525   20  0.0646        0.1848          0.1176       NaN
+86    fipn  2024   SP   IL  s,r,g  False  0.1890  0.0293   56  0.5828        0.1916          0.1798       NaN
+87    fipn  2024   SP  PCL  s,r,g  False  0.1832  0.0478   29  0.3200        0.1505          0.2486       NaN
+88    fipn  2025   SP   IL  s,r,g  False  0.1546  0.0463   62  0.0835        0.1649          0.1231       NaN
+89    fipn  2025   SP  PCL  s,r,g  False  0.2339  0.0539   29  0.2991        0.2399          0.2217       NaN
+90    fipn  2023   RP   IL  s,r,g  False  0.1421  0.0342  101  0.1409        0.1026          0.2342       NaN
+91    fipn  2023   RP  PCL  s,r,g  False  0.2037  0.0379   49  0.3067        0.2148          0.1817       NaN
+92    fipn  2024   RP   IL  s,r,g  False  0.1522  0.0429   83  0.2306        0.1280          0.2366       NaN
+93    fipn  2024   RP  PCL  s,r,g  False  0.2268  0.0565   44  0.0879        0.1924          0.2775       NaN
+94    fipn  2025   RP   IL  s,r,g  False  0.2302  0.0291  106  0.4381        0.2127          0.2731       NaN
+95    fipn  2025   RP  PCL  s,r,g  False  0.2429  0.0692   39  0.1142        0.2155          0.3407       NaN
+96   whiff  2023  bat   IL  s,r,g  False  0.0243  0.0038  137  0.7587        0.0242          0.0247       NaN
+97   whiff  2023  bat  PCL  s,r,g  False  0.0400  0.0067   63  0.9042        0.0358          0.0498       NaN
+98   whiff  2024  bat   IL  s,r,g  False  0.0147  0.0041  115  0.8529        0.0129          0.0174       NaN
+99   whiff  2024  bat  PCL  s,r,g  False  0.0335  0.0051   68  0.9223        0.0352          0.0306       NaN
+100  whiff  2025  bat   IL  s,r,g  False  0.0093  0.0040  128  0.7981        0.0085          0.0107       NaN
+101  whiff  2025  bat  PCL  s,r,g  False  0.0422  0.0039   69  0.9938        0.0431          0.0398       NaN
+102  chase  2023  bat   IL  s,r,g  False -0.0001  0.0037  137  0.8660       -0.0010          0.0022       NaN
+103  chase  2023  bat  PCL  s,r,g  False  0.0112  0.0063   63  0.8862        0.0079          0.0188       NaN
+104  chase  2024  bat   IL  s,r,g  False  0.0120  0.0039  115  0.8076        0.0140          0.0090       NaN
+105  chase  2024  bat  PCL  s,r,g  False  0.0205  0.0044   68  0.9810        0.0157          0.0288       NaN
+106  chase  2025  bat   IL  s,r,g  False  0.0103  0.0039  128  0.8706        0.0052          0.0197       NaN
+107  chase  2025  bat  PCL  s,r,g  False  0.0225  0.0045   69  0.9300        0.0198          0.0302       NaN
+108    csw  2023   SP   IL  s,r,g  False -0.0098  0.0038   62  0.3326       -0.0128         -0.0033       NaN
+109    csw  2023   SP  PCL  s,r,g  False -0.0065  0.0055   20  0.3787       -0.0074         -0.0036       NaN
+110    csw  2024   SP   IL  s,r,g  False -0.0180  0.0032   56  0.3258       -0.0177         -0.0190       NaN
+111    csw  2024   SP  PCL  s,r,g  False -0.0126  0.0046   29  0.4376       -0.0179         -0.0022       NaN
+112    csw  2025   SP   IL  s,r,g  False -0.0134  0.0040   62  0.2281       -0.0143         -0.0109       NaN
+113    csw  2025   SP  PCL  s,r,g  False -0.0169  0.0049   29  0.4792       -0.0178         -0.0152       NaN
+114    csw  2023   RP   IL  s,r,g  False -0.0205  0.0027  101  0.5488       -0.0217         -0.0179       NaN
+115    csw  2023   RP  PCL  s,r,g  False -0.0124  0.0038   49  0.3166       -0.0127         -0.0119       NaN
+116    csw  2024   RP   IL  s,r,g  False -0.0272  0.0035   83  0.3474       -0.0295         -0.0190       NaN
+117    csw  2024   RP  PCL  s,r,g  False -0.0217  0.0047   44  0.6636       -0.0182         -0.0269       NaN
+118    csw  2025   RP   IL  s,r,g  False -0.0205  0.0032  106  0.3310       -0.0228         -0.0149       NaN
+119    csw  2025   RP  PCL  s,r,g  False -0.0222  0.0048   39  0.1430       -0.0183         -0.0355       NaN
+bat gates ok: n_mlb == Pillar 1 for 68 | measures == Pillar 1 for 52 no-AAA arrivals
+bat training n 53 | of which AAA-only 4
+                                           npb_en   n_mlb   n_aaa  aaa_only    Y1_C    Y1_A  Y1_A_shr    Y1_B  Y1_B_shr
+1                     Seymour,Bob（ORIX Buffaloes）    83.0   656.0      True  1.0262  1.0270    1.0256  0.9996    1.0031
+6   McCusker,Carson（Tohoku Rakuten Golden Eagles）    30.0   532.0      True  1.0262  1.0145    1.0180  1.0102    1.0127
+8          Canario,Alexander（Saitama Seibu Lions）   279.0   444.0     False  1.0262  1.0220    1.0232  1.0209    1.0218
+18                   Devanney,Cam（Hanshin Tigers）    38.0  1344.0      True  1.0262  1.0154    1.0174  0.9889    0.9932
+19                  Garcia,Dermis（Hanshin Tigers）   125.0   198.0      True  1.0262  1.0139    1.0215  0.9607    0.9781
+24      Encarnacion,Jerar（YOKOHAMA DeNA BAYSTARS）   256.0   759.0     False  1.0262  1.0142    1.0168  1.0358    1.0342
+25          Hummel,Cooper（YOKOHAMA DeNA BAYSTARS）   339.0  1084.0     False  1.0262  1.0175    1.0182  1.0263    1.0261
+29                   Dalbec,Bobby（Yomiuri Giants）  1063.0  1357.0     False  1.0262  1.0271    1.0272  1.0449    1.0437
+31                  Sano,Miguel（Chunichi Dragons）  2944.0    40.0     False  1.0262  1.0466    1.0470  1.0960    1.0967
+35   Castro,Rodolfo（Hokkaido Nippon-Ham Fighters）   625.0   655.0     False  1.0262  1.0099    1.0154  0.9724    0.9817
+pit gates ok: n_mlb == Pillar 1 for 109 | measures == Pillar 1 for 87 no-AAA arrivals
+pit training n 65 | of which AAA-only 2
+                                            npb_en   n_mlb   n_aaa  aaa_only    P1_C    P1_A  P1_A_shr    P1_B  P1_B_shr
+0                      Hjelle,Sean（ORIX Buffaloes）   654.0   709.0     False  0.1252  0.1325    0.1329  0.1396    0.1398
+2               Tarnok,Freddy（Hiroshima Toyo Carp）    96.0   491.0      True  0.1252  0.1176    0.1194  0.1224    0.1227
+3   Contreras,Roansy（Tohoku Rakuten Golden Eagles）  1060.0   526.0     False  0.1252  0.1229    0.1235  0.1346    0.1348
+4         Urena,Jose（Tohoku Rakuten Golden Eagles）  4308.0   501.0     False  0.1252  0.1161    0.1162  0.1071    0.1074
+7                Winans,Allan（Saitama Seibu Lions）   227.0  1380.0     False  0.1252  0.1350    0.1342  0.1434    0.1421
+9              Quijada,Jose（Tokyo Yakult Swallows）   566.0    71.0     False  0.1252  0.1436    0.1447  0.1389    0.1398
+10            Liranzo,Jesus（Tokyo Yakult Swallows）     0.0   319.0      True  0.1252  0.1266    0.1261  0.1214    0.1224
+12              Castillo,Jose（Chiba Lotte Marines）   312.0   326.0     False  0.1252  0.1417    0.1405  0.1551    0.1516
+13              Lucchesi,Joey（Chiba Lotte Marines）  1810.0   963.0     False  0.1252  0.1305    0.1312  0.1280    0.1288
+14                   Long,Sam（Chiba Lotte Marines）   912.0   241.0     False  0.1252  0.1248    0.1253  0.1274    0.1274
+15                    Lucas,Easton（Hanshin Tigers）   203.0   682.0     False  0.1252  0.1253    0.1250  0.1095    0.1110
+17                    Moreta,Dauri（Hanshin Tigers）   478.0   190.0     False  0.1252  0.1541    0.1515  0.1639    0.1597
+20              Cox,Austin（YOKOHAMA DeNA BAYSTARS）   251.0   622.0     False  0.1252  0.1167    0.1187  0.1148    0.1167
+21            Bido,Osvaldo（YOKOHAMA DeNA BAYSTARS）   854.0   553.0     False  0.1252  0.1301    0.1296  0.1277    0.1277
+22               Ruiz,Jose（YOKOHAMA DeNA BAYSTARS）  1267.0   285.0     False  0.1252  0.1333    0.1324  0.1309    0.1306
+23           Reynolds,Sean（YOKOHAMA DeNA BAYSTARS）   166.0   544.0     False  0.1252  0.1072    0.1118  0.1277    0.1276
+26                 Whitley,Forrest（Yomiuri Giants）    86.0   514.0      True  0.1252  0.1384    0.1351  0.1439    0.1398
+27                      Mata,Bryan（Yomiuri Giants）     0.0   507.0      True  0.1252  0.1170    0.1189  0.1351    0.1332
+28                   Luciano,Elvis（Yomiuri Giants）   158.0     0.0     False  0.1252  0.1001    0.1001  0.1111    0.1111
+32        Rutledge,Jackson（Fukuoka SoftBank Hawks）   452.0   796.0     False  0.1252  0.1161    0.1178  0.1109    0.1127
+34        Lao,Sauryn（Hokkaido Nippon-Ham Fighters）    49.0   430.0      True  0.1252  0.1300    0.1291  0.1135    0.1167
+63936907a96361d336fcb8f6403efcd9 l2/pred26L2_bat.csv
+f568d209176a89921e16bc0fdf23f8e5 l2/pred26L2_pit.csv
+54ca5930c1221a38076f8d13741333f5 l2/coefL2.csv
+3d6eda6193e975b1d2ac3f798b3ab69e l2/relk.csv
+1eed73fc2987acff3ae1b7c666506f0e l2/delta.csv
+f7f7686518552ddc13e044e9903a0db8 l2_pred26.py
+1225f5d9c002e51236e204ae669f1d0c l2_agg.py
+8b995f35ffa98467f003dabdc3f3cedb l2_delta.py
+written
+CHAIN_OK 2026-09-24 16:21:46

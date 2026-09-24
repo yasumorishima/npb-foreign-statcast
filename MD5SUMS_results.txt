@@ -1,4 +1,10 @@
-df9c4d672426dd496ba26f5da0bb1958  RESULTS_pillar1_run1.txt
 89dfb2bf5fd8b545718616bc0bd4894e  pred26_bat.csv
 cffa8c8df49af2cb9ac11c252d84b761  pred26_coef.csv
 d08d150e702b4bcd4aaa355c84b0ec5f  pred26_pit.csv
+df9c4d672426dd496ba26f5da0bb1958  RESULTS_pillar1_run1.txt
+54ca5930c1221a38076f8d13741333f5  layer2/coefL2.csv
+1eed73fc2987acff3ae1b7c666506f0e  layer2/delta.csv
+10f0e167fab19073ca3011a8a356bfc2  layer2/l2_chain_log.txt
+63936907a96361d336fcb8f6403efcd9  layer2/pred26L2_bat.csv
+f568d209176a89921e16bc0fdf23f8e5  layer2/pred26L2_pit.csv
+3d6eda6193e975b1d2ac3f798b3ab69e  layer2/relk.csv
