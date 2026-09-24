@@ -11,6 +11,7 @@ This project is worked on in Claude Code cloud. The owner starts a session with 
 
 ## Progress log
 - 2026-09-24: moved to cloud; the repo alone reproduces the recorded results on x86_64.
+- 2026-09-24 (session 2): season not over (9/23: 134–136 games). Froze S1v2 prereg + amendment 1 (md5 in MD5SUMS_prereg.txt), wrote and reviewed `src/s1v2.py`; not run on real data (feature files not rebuilt). Next: run S1v2 (task 2) or pillar-2 prereg (2b); final 2026 scoring once every team has 143 games.
 
 ## What this is
 Does MLB/AAA Statcast *process* data (xwOBA, whiff, chase, barrel, CSW%) predict a foreign player's first NPB season better than MLB *result* data (wOBA, K%, BB%, HR rate, K−BB%)? See `README.md` for current results.
@@ -27,7 +28,7 @@ Does MLB/AAA Statcast *process* data (xwOBA, whiff, chase, barrel, CSW%) predict
    - Fetch the final npb.jp team pages (`https://npb.jp/bis/2026/stats/idb1_<team>.html`, `idp1_<team>.html`, 12 teams each) into `r26live/` (not committed).
    - Run `src/interim26.py`'s rules unchanged: it expects `pred26_bat.csv`, `pred26_pit.csv`, `l2/pred26L2_*.csv` in the working directory — copy them from `results/` and `results/layer2/` into a scratch dir; the md5 asserts must pass. Change only input paths, never scoring logic.
    - Commit the output under `results/final/` and update the README table (keep the interim table, label it as interim).
-2. While waiting: a separate pre-registration replacing the pillar-1 S1 "reached playing time" AUC (the pooled LOYO AUC is an artifact: intercept-only gives 0.23). Candidates: mean of per-year AUC, or year fixed effects. Register before computing.
+2. **S1 replacement: registered and frozen, not yet run.** `prereg/PREREG_pillar1_S1v2.md` (within-year AUC; intercept-only = 0.5 by construction) + `prereg/AMENDMENTS1_S1v2.md`, scorer `src/s1v2.py` (independently reviewed; tested on synthetic data only). To run: regenerate `feat_bat.csv` / `feat_pit.csv` with `src/ana1.py` (needs `links.csv`, `npb_*_2015_2025.csv`, per-player MLB files), copy the two prereg files next to them, `pip install "scikit-learn<1.10"`, run once in the background (~1 h, 2000 bootstraps × 2). The pooled-AUC gate must pass before anything new is printed. Commit the output to `results/RESULTS_S1v2_run1.txt` and add it to `MD5SUMS_results.txt` + README. Caveat found this session: `src/` has no fetcher for baseball-data.com (`npb_*_2015_2025.csv`), and `fetch_npb_pages.py` / `link_foreign.py` read Chadwick from `~/claude-scratch/npbid/`; check whether that pipeline can be rebuilt in cloud (write any new fetcher before touching outcomes, and note that the file must reproduce `links.csv` counts).
 2b. Pillar 2: form research questions that use only what NPB+ displays (pitch speed, spin rate, exit velocity, launch angle, etc.), built on MLB Statcast now so they transfer if NPB Hawk-Eye data is ever published. Write them as a pre-registration before any analysis. Do not propose scraping the NPB+ app.
 3. **Before 2027 opening day:** identify 2027 arrivals from rosters (`src/r26_*.py` pattern; left-handed marks `<sup>*</sup>` must be handled), compute δ(2026) from 2026 league-wide AAA/MLB pitch data (`src/fetch_lg.py`, `src/l2_*.py`), predict, freeze and commit **before the first NPB game**.
 

@@ -1,4 +1,5 @@
-"""Pillar 1 S1 replacement exactly as frozen in PREREG_pillar1_S1v2.md (md5 f9754643bbd42af806af25b125c3c58c).
+"""Pillar 1 S1 replacement exactly as frozen in PREREG_pillar1_S1v2.md (md5 f9754643bbd42af806af25b125c3c58c)
+and AMENDMENTS1_S1v2.md (md5 109a3ec5bc1a822631704957cee2d600). Needs scikit-learn < 1.10.
 
 Reads feat_bat.csv / feat_pit.csv written by ana1.py (same working directory) and prints the within-year AUC
 of the leave-one-arrival-year-out logistic predictions, its centred player bootstrap, and the sensitivities.
@@ -7,8 +8,12 @@ import hashlib, warnings
 import numpy as np, pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.exceptions import ConvergenceWarning
+from sklearn.metrics import roc_auc_score
 
 assert hashlib.md5(open("PREREG_pillar1_S1v2.md", "rb").read()).hexdigest() == "f9754643bbd42af806af25b125c3c58c"
+assert hashlib.md5(open("AMENDMENTS1_S1v2.md", "rb").read()).hexdigest() == "109a3ec5bc1a822631704957cee2d600"
+warnings.filterwarnings("ignore", category=FutureWarning)  # sklearn 1.8-1.9: penalty=None deprecation notice
+POOLED = {"bat": (0.1796, 0.2762), "pit": (0.5118, 0.4988)}  # RESULTS_pillar1_run1.txt, already public
 SEED, NBOOT = 20260924, 2000
 S1 = {"bat": ("woba", "xwoba"), "pit": ("kbb", "csw")}
 EXPECT_N = {"bat": 64, "pit": 96}
@@ -32,9 +37,10 @@ def fe_oof(df, y, x):
     """Sens-b: ok ~ x + arrival-year dummies on the training fold; held-out year scored by slope * x."""
     score = np.full(len(df), np.nan)
     yrs = df.year.values
-    nwarn = 0
+    nwarn = nsingle = 0
     for fy in np.unique(yrs):
         tr, te = yrs != fy, yrs == fy
+        nsingle += int((df[tr].groupby("year")[y].nunique() < 2).any())
         d = pd.get_dummies(df.year[tr], drop_first=True, dtype=float)
         X = np.column_stack([df[x].values[tr], d.values])
         with warnings.catch_warnings(record=True) as w:
@@ -42,7 +48,7 @@ def fe_oof(df, y, x):
             m = LogisticRegression(penalty=None, max_iter=1000).fit(X, df[y].values[tr])
         nwarn += sum(issubclass(i.category, ConvergenceWarning) for i in w)
         score[te] = m.coef_[0][0] * df[x].values[te]
-    return score, nwarn
+    return score, nwarn, nsingle
 
 
 def auc_w(df, y, p):
@@ -64,11 +70,12 @@ def run(df, a, b, y="ok100", boot=True):
     pa, pb = logit_oof(df, y, [a]), logit_oof(df, y, [b])
     assert pa is not None and pb is not None and np.isfinite(pa).all() and np.isfinite(pb).all()
     ra, rb = auc_w(df, y, pa), auc_w(df, y, pb)
-    res = dict(n=len(df), n_reached=int(df[y].sum()), years=rb["years"], pairs=rb["pairs"],
-               AUCw_A=ra["auc"], AUCw_B=rb["auc"], dAUCw=rb["auc"] - ra["auc"],
-               meanyr_A=ra["mean_year"], meanyr_B=rb["mean_year"])
+    assert (ra["years"], ra["pairs"]) == (rb["years"], rb["pairs"])
+    res = dict(n=len(df), n_reached=int(df[y].sum()), years_AB=rb["years"], pairs_AB=rb["pairs"],
+               AUCw_A=ra["auc"], AUCw_B=rb["auc"], dAUCw=rb["auc"] - ra["auc"])
     if not boot:
         return res
+    res["_sens_a"] = (ra["mean_year"], rb["mean_year"])
     rng = np.random.default_rng(SEED)
     d_, fa, fb, dropped = [], [], [], 0
     for _ in range(NBOOT):
@@ -103,13 +110,20 @@ if __name__ == "__main__":
             assert e[c].dtype == bool, (c, e[c].dtype)
         a, b = S1[kind]
         assert e[[a, b]].notna().all().all()
-        print(f"== S1v2 {kind} (secondary) ==")
-        print("primary  ", fmt(run(e, a, b)))
-        # Sens-a is meanyr_A / meanyr_B above
-        sa, wa = fe_oof(e, "ok100", a); sb, wb = fe_oof(e, "ok100", b)
+        # integrity gate (AMENDMENTS1 #2): regenerated features reproduce the registered pooled S1 AUCs
+        pooled = tuple(round(roc_auc_score(e.ok100, logit_oof(e, "ok100", [x])), 4) for x in (a, b))
+        assert pooled == POOLED[kind], ("pooled S1 AUC gate failed", kind, pooled)
+        print(f"== S1v2 {kind} (secondary) == gate ok: pooled AUC_A/AUC_B {pooled}")
+        r = run(e, a, b); sens_a = r.pop("_sens_a")
+        print("primary  ", fmt(r))
+        print(f"Sens-a mean of per-year AUC: A={sens_a[0]:.4f} B={sens_a[1]:.4f}")
+        sa, wa, na = fe_oof(e, "ok100", a); sb, wb, nb = fe_oof(e, "ok100", b)
         print(f"Sens-b FE AUCw_A={auc_w(e, 'ok100', sa)['auc']:.4f} AUCw_B={auc_w(e, 'ok100', sb)['auc']:.4f}"
-              f" convergence_warnings A={wa} B={wb}")
+              f" convergence_warnings A={wa} B={wb} folds_with_single_class_train_year={na}"
+              " (lbfgs does not flag separation)")
+        assert na == nb
         print("Sens-c ok50", fmt(run(e, a, b, y="ok50", boot=False)))
-        # sanity: intercept-only must be exactly 0.5 by construction
+        # diagnostic (not registered): intercept-only must give exactly 0.5 by construction
         const = np.array([e.ok100[e.year != yr].mean() for yr in e.year])
-        print("check intercept-only AUCw =", auc_w(e, "ok100", const)["auc"])
+        assert auc_w(e, "ok100", const)["auc"] == 0.5
+        print("diagnostic: intercept-only AUCw = 0.5 (asserted)")
