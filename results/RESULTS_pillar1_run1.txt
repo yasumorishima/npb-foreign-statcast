@@ -1,0 +1,28 @@
+entrants bat 64 pit 96
+bat MLB PA/BF by arrival year: {2016: {'size': 3, 'median': 261.0}, 2017: {'size': 4, 'median': 261.0}, 2018: {'size': 3, 'median': 239.0}, 2019: {'size': 6, 'median': 674.5}, 2020: {'size': 8, 'median': 1569.0}, 2021: {'size': 6, 'median': 1654.5}, 2022: {'size': 8, 'median': 243.0}, 2023: {'size': 10, 'median': 689.0}, 2024: {'size': 7, 'median': 791.0}, 2025: {'size': 9, 'median': 739.0}}
+bat xwOBA fallback share by arrival year: {2016: 0.111, 2017: 0.11, 2018: 0.11, 2019: 0.105, 2020: 0.102, 2021: 0.092, 2022: 0.071, 2023: 0.055, 2024: 0.031, 2025: 0.012}
+pit MLB PA/BF by arrival year: {2016: {'size': 1, 'median': 268.0}, 2017: {'size': 8, 'median': 311.5}, 2018: {'size': 10, 'median': 567.5}, 2019: {'size': 10, 'median': 357.5}, 2020: {'size': 4, 'median': 769.5}, 2021: {'size': 10, 'median': 306.0}, 2022: {'size': 16, 'median': 477.5}, 2023: {'size': 15, 'median': 525.0}, 2024: {'size': 11, 'median': 392.0}, 2025: {'size': 11, 'median': 630.0}}
+pit xwOBA fallback share by arrival year: {2016: 0.118, 2017: 0.094, 2018: 0.118, 2019: 0.091, 2020: 0.09, 2021: 0.084, 2022: 0.062, 2023: 0.058, 2024: 0.02, 2025: 0.012}
+== PRIMARY ==
+H1 Y1 OPS_rel   n=49 C=0.1309 A=0.1304 B=0.1247 AB=0.1200 dBA=0.0057 dBC=0.0062 p_BA=0.2600 p_BC=0.1880 p_signflip=0.1963
+H2 P1 K-BB%     n=63 C=0.0468 A=0.0462 B=0.0457 AB=0.0457 dBA=0.0005 dBC=0.0010 p_BA=0.2915 p_BC=0.1855 p_signflip=0.3261
+Holm reject (B<A): {'H1': False, 'H2': False} | floor B<C at .05: {'H1': False, 'H2': False}
+VERDICT (Holm-reject AND beats floor): {'H1': False, 'H2': False}
+note: every bootstrap reuses seed 20260924 (Holm is valid under any dependence)
+== SECONDARY ==
+Y2 n=49 C=0.0456 A=0.0377 B=0.0410 AB=0.0394 dBA=-0.0032 dBC=0.0046 p_BA=0.8960 p_BC=0.1580 p_signflip=0.9182
+Y3 n=49 C=0.0287 A=0.0243 B=0.0245 AB=0.0239 dBA=-0.0002 dBC=0.0042 p_BA=0.5060 p_BC=0.0335 p_signflip=0.5633
+Y4 n=49 C=0.0135 A=0.0130 B=0.0122 AB=0.0130 dBA=0.0008 dBC=0.0013 p_BA=0.1345 p_BC=0.1485 p_signflip=0.1067
+P2 n=63 C=0.8222 A=0.8324 B=0.8319 AB=0.8482 dBA=0.0004 dBC=-0.0098 p_BA=0.5290 p_BC=0.5090 p_signflip=0.5014
+P3 n=63 C=0.0074 A=0.0073 B=0.0075 AB=0.0075 dBA=-0.0003 dBC=-0.0002 p_BA=0.8015 p_BC=0.6635 p_signflip=0.9339
+H1 weighted n=49 C=0.1297 A=0.1285 B=0.1243 AB=0.1212 dBA=0.0043 dBC=0.0055 p_BA=0.2990 p_BC=0.1805 p_signflip=0.1963
+H2 weighted n=63 C=0.0429 A=0.0417 B=0.0414 AB=0.0412 dBA=0.0003 dBC=0.0015 p_BA=0.3830 p_BC=0.1545 p_signflip=0.3261
+H1 >=50PA n=60 C=0.1543 A=0.1558 B=0.1464 AB=0.1486 dBA=0.0094 dBC=0.0080 p_BA=0.1205 p_BC=0.1385 p_signflip=0.0445
+H2 >=15IP n=80 C=0.0500 A=0.0471 B=0.0465 AB=0.0461 dBA=0.0007 dBC=0.0035 p_BA=0.3510 p_BC=0.0680 p_signflip=0.3337
+H2 +start: A 0.046 B 0.0457
+S1 bat n=64 AUC_A=0.1796 AUC_B=0.2762 dAUC=0.0966 p=0.1620 dropped=0
+S1 pit n=96 AUC_A=0.5118 AUC_B=0.4988 dAUC=-0.0130 p=0.5990 dropped=0
+2020+ window: bat n=20 (drops 29), pit n=26 (drops 37)
+H1 2020+ n=20 C=0.1378 A=0.1451 B=0.1367 AB=0.1250 dBA=0.0083 dBC=0.0011 p_BA=0.2800 p_BC=0.2890 p_signflip=0.2946
+H2 2020+ n=26 C=0.0365 A=0.0348 B=0.0356 AB=0.0350 dBA=-0.0008 dBC=0.0009 p_BA=0.5115 p_BC=0.2440 p_signflip=0.7000
+--- diag (post hoc, not registered): intercept-only pooled OOF AUC bat 0.2306 / pit 0.3579 => S1 pooled AUC is dominated by the leave-one-year-out base-rate artifact and is not interpretable as registered.
