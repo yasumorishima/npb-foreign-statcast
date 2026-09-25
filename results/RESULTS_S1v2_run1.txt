@@ -1,0 +1,17 @@
+# S1v2 run 1 (PREREG_pillar1_S1v2.md f9754643bbd42af806af25b125c3c58c + AMENDMENTS1_S1v2.md 109a3ec5bc1a822631704957cee2d600), run once in cloud
+# s1v2.py md5 88610d8760753d3e539cf375176bc795 | feat_bat.csv 5523f4a71725869278d7702ad256b8ab | feat_pit.csv 7317b7aa24143e37f5cff5a9cc8b9a80 | scikit-learn 1.9.1, pandas 3.0.6
+# Inputs rebuilt 2026-09-25 (fetch_bdata.py, fetch_npb_pages.py, link_foreign.py, fetch_mlb.py: 653 files); ana1.py on them reproduced every line of RESULTS_pillar1_run1.txt exactly before this run.
+start 2026-09-25 23:51:45 JST
+== S1v2 bat (secondary) == gate ok: pooled AUC_A/AUC_B (0.1796, 0.2762)
+primary   n=64 n_reached=49 years_AB=8 pairs_AB=69 AUCw_A=0.3333 AUCw_B=0.6087 dAUCw=0.2754 p_BA=0.0220 p_A_floor=0.9575 p_B_floor=0.1400 dropped=0 B_better (p_BA<=.05 and p_B_floor<=.05)=False
+Sens-a mean of per-year AUC: A=0.2576 B=0.5891
+Sens-b FE AUCw_A=0.3333 AUCw_B=0.6087 convergence_warnings A=0 B=0 folds_with_single_class_train_year=10 (lbfgs does not flag separation)
+Sens-c ok50 n=64 n_reached=60 years_AB=3 pairs_AB=23 AUCw_A=0.5217 AUCw_B=0.4783 dAUCw=-0.0435
+diagnostic: intercept-only AUCw = 0.5 (asserted)
+== S1v2 pit (secondary) == gate ok: pooled AUC_A/AUC_B (0.5118, 0.4988)
+primary   n=96 n_reached=63 years_AB=9 pairs_AB=236 AUCw_A=0.6102 AUCw_B=0.5847 dAUCw=-0.0254 p_BA=0.6305 p_A_floor=0.0760 p_B_floor=0.1345 dropped=0 B_better (p_BA<=.05 and p_B_floor<=.05)=False
+Sens-a mean of per-year AUC: A=0.5217 B=0.4964
+Sens-b FE AUCw_A=0.6102 AUCw_B=0.5847 convergence_warnings A=0 B=0 folds_with_single_class_train_year=9 (lbfgs does not flag separation)
+Sens-c ok50 n=96 n_reached=80 years_AB=7 pairs_AB=132 AUCw_A=0.5909 AUCw_B=0.6818 dAUCw=0.0909
+diagnostic: intercept-only AUCw = 0.5 (asserted)
+end 2026-09-25 23:57:24 JST
