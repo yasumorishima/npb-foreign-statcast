@@ -1,0 +1,31 @@
+name: Frozen files
+
+# The pre-registrations and the predictions frozen before the NPB season are
+# the record this study is judged on. Fail if any of them changes.
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "41 4 * * 1"
+  workflow_dispatch:
+    inputs:
+      memo:
+        description: 'この実行の意図'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  md5:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pre-registrations (MD5SUMS_prereg.txt)
+        working-directory: prereg
+        run: md5sum -c ../MD5SUMS_prereg.txt
+      - name: Frozen predictions and results (MD5SUMS_results.txt)
+        working-directory: results
+        run: md5sum -c ../MD5SUMS_results.txt
