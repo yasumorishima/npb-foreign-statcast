@@ -13,6 +13,7 @@ This project is worked on in Claude Code cloud. The owner starts a session with 
 - 2026-09-24: moved to cloud; the repo alone reproduces the recorded results on x86_64.
 - 2026-09-25: rebuilt all pillar-1 inputs in cloud (new `src/fetch_bdata.py`), ana1.py reproduced RESULTS_pillar1_run1.txt exactly; ran S1v2 once: bat AUCw wOBA 0.333 / xwOBA 0.609 (p_BA .022, B vs 0.5 p .14), pit K−BB% 0.610 / CSW% 0.585 (p .63) → registered rule not met. Next: 2b, or task 1 once the season ends.
 - 2026-09-24 (session 2): season not over (9/23: 134–136 games). Froze S1v2 prereg + amendment 1 (md5 in MD5SUMS_prereg.txt), wrote and reviewed `src/s1v2.py`; not run on real data (feature files not rebuilt). Next: run S1v2 (task 2) or pillar-2 prereg (2b); final 2026 scoring once every team has 143 games.
+- 2026-11-23 (cloud): added "Evaluation practice (評価の作法, 2026-11 addition)" from Anthropic "Building strong safety evaluations" (owner: 「今後の評価の糧にしたい」); no other section changed. Same addition made in mlb-win-probability, npb-foreign-statcast, baseball-bayes, npb-prediction, mlb-data-pipeline, jev-baseball (mlb-pitch-forecast is not attached to this session).
 
 ## What this is
 Does MLB/AAA Statcast *process* data (xwOBA, whiff, chase, barrel, CSW%) predict a foreign player's first NPB season better than MLB *result* data (wOBA, K%, BB%, HR rate, K−BB%)? See `README.md` for current results.
@@ -23,6 +24,15 @@ Does MLB/AAA Statcast *process* data (xwOBA, whiff, chase, barrel, CSW%) predict
 3. **Commit frozen artifacts here before the event they predict** (commit time is the public proof).
 4. Code that produces a result gets an independent review before it runs; review claims are verified against the code/data before being accepted.
 5. Report nulls as facts. Write summaries in Japanese.
+
+## Evaluation practice (評価の作法, 2026-11 addition)
+Lessons taken from Anthropic, "Building strong safety evaluations" (2026-11-13), kept only where they change what the next evaluation here does; rules above that already cover a point are not repeated.
+- **State the resolution before registering.** With ~49 batters / ~63 pitchers per cohort, write in the PREREG the interval half-width expected from the earlier run (e.g. S1v2) and the smallest difference that could be read; a result inside that range is "indistinguishable", said with that number.
+- **Paired per player.** Process vs result arms are compared on the same players: the interval is on the per-player difference, not on two separate AUCs / MAEs.
+- **Several process metrics = several comparisons.** When more than one of xwOBA / whiff / chase / barrel / CSW% is read as a decision, declare the correction (e.g. Holm) in the PREREG.
+- **Report every slice, changed or not:** batters / pitchers, MLB vs AAA source, playing-time band in the first NPB season — in one table.
+- **Write the construct before data** (what "predicts the first NPB season" means for this metric) and check that a do-nothing arm (league mean, previous-league result only) cannot score well on it.
+- **A surprising number is a harness suspect first** (name matching, innings notation, `*`/`+` marks): re-check the inputs before any reading.
 
 ## Next tasks (in order)
 1. **Final 2026 scoring (after the NPB 2026 regular season ends, early October).**
